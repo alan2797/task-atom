@@ -1,7 +1,7 @@
 import { Task } from "../domain/task.entity";
 
 export interface TaskRepository {
-  getAll(): Promise<Task[]>;
+  getAll(id: string): Promise<Task[]>;
   create(data: Task): Promise<Task>;
   update(id: string, data: Partial<Task>): Promise<Task>;
   delete(id: string): Promise<boolean>;
@@ -10,8 +10,8 @@ export interface TaskRepository {
 export class TaskUseCase {
   constructor(private taskRepository: TaskRepository) {}
 
-  async obtenerTareas() {
-    return await this.taskRepository.getAll();
+  async obtenerTareas(id: string) {
+    return await this.taskRepository.getAll(id);
   }
 
   async crearTarea(data: Task) {

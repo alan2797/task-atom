@@ -5,6 +5,7 @@ export const createTaskSchema = z.object({
     titulo: z.string().min(3, "El título es obligatorio"),
     descripcion: z.string().min(3).optional(),
     userId: z.string(),
+    tipo: z.string(),
   }),
 });
 
@@ -16,5 +17,6 @@ export const updateTaskSchema = z.object({
     titulo: z.string().optional(),
     descripcion: z.string().optional(),
     estado: z.string().optional(),
+    tipo: z.string().optional(),
   }),
 });

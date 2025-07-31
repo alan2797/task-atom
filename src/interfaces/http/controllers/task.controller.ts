@@ -7,7 +7,7 @@ export class TaskController {
 
   getAll = async (req: Request, res: Response) => {
     try {
-      const tasks = await this.taskUseCase.obtenerTareas();
+      const tasks = await this.taskUseCase.obtenerTareas(req.params.id);
       return sendResponse(res, 200, "Tareas obtenidas correctamente", tasks);
     } catch (err: any) {
       res.status(500).json({ error: err.message });

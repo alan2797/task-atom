@@ -1,13 +1,8 @@
 import admin from "firebase-admin";
-import { readFileSync } from "fs";
-import path from "path";
 
-// Ruta absoluta hacia el archivo
-const serviceAccountPath = path.resolve(
-  __dirname,
-  "../../serviceAccountKey.json"
-);
-const serviceAccount = JSON.parse(readFileSync(serviceAccountPath, "utf8"));
+const serviceAccount = JSON.parse(process.env.FIREBASE_ACCOUNT_KEY!);
+// Si el private_key viene con "\n" literales hay que reemplazarlos:
+serviceAccount.private_key = serviceAccount.private_key.replace(/\\n/g, "\n");
 
 admin.initializeApp({
   credential: admin.credential.cert(serviceAccount),

@@ -5,6 +5,7 @@ export interface TaskProps {
   estado?: string;
   fechaRegistro: Date;
   userId: string;
+  tipo: string;
 }
 
 export class Task {
@@ -14,6 +15,7 @@ export class Task {
   estado: string;
   fechaRegistro: Date;
   userId: string;
+  tipo: string;
 
   constructor({
     id,
@@ -22,6 +24,7 @@ export class Task {
     estado = "P",
     fechaRegistro = new Date(),
     userId,
+    tipo,
   }: TaskProps) {
     this.id = id;
     this.titulo = titulo;
@@ -29,5 +32,6 @@ export class Task {
     this.estado = estado;
     this.fechaRegistro = fechaRegistro;
     this.userId = userId;
+    this.tipo = tipo;
   }
 }

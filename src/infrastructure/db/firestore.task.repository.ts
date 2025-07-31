@@ -9,8 +9,8 @@ export class FirestoreTaskRepository implements TaskRepository {
     this.collection = firestore.collection("tasks");
   }
 
-  async getAll(): Promise<Task[]> {
-    const snapshot = await this.collection.get();
+  async getAll(id: string): Promise<Task[]> {
+    const snapshot = await this.collection.where("userId", "==", id).get();
     return snapshot.docs.map((doc) => ({ id: doc.id, ...doc.data() } as Task));
   }
 
