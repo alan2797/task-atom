@@ -1,8 +1,8 @@
 {
   "name": "api-atom",
   "version": "1.0.0",
-  "description": "",
-  "main": "src/index.ts",
+  "description": "", 
+  "main": "dist/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon --watch src --exec ts-node src/index.ts",
