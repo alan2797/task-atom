@@ -51,53 +51,55 @@ El backend implementa varias medidas para garantizar la seguridad de la API y la
 - npm o yarn
 - Archivo `.env` configurado con:
 
+```env
   PORT=3000
   JWT_SECRET=tu_secreto_muy_seguro_aqui
   JWT_EXPIRES_IN=15m
   WEB=http://localhost:4200
   FIREBASE_ACCOUNT_KEY="keyFirabse"
 
-  ## Endpoints principales
+## Endpoints principales
 
 ### Autenticación
 
-- `GET /users/exists/:email`  
+- `GET /users/exists/:email`
   Verifica si un usuario existe por su correo
 
-- `POST /users`  
+- `POST /users`
   Crea un usuario con su correo electronico
 
 ### Tareas
 
-- `GET /tasks/:userId`  
+- `GET /tasks/:userId`
   Obtiene todas las tareas del usuario logueado
 
-- `POST /tasks`  
+- `POST /tasks`
   Crea una nueva tarea.
 
-- `PUT /tasks/:id`  
+- `PUT /tasks/:id`
   Actualiza una tarea existente.
 
-- `DELETE /tasks/:id`  
+- `DELETE /tasks/:id`
   Elimina una tarea por su identificador.
 
-  ## Arquitectura basada en DDD (Domain-Driven Design)
+## Arquitectura basada en DDD (Domain-Driven Design)
 
-Este backend sigue los principios de **Domain-Driven Design (DDD)** para mantener un código modular, desacoplado y fácil de escalar.  
+Este backend sigue los principios de **Domain-Driven Design (DDD)** para mantener un código modular, desacoplado y fácil de escalar.
 La estructura principal del proyecto está organizada en las siguientes carpetas:
 
-- **`domain`**  
-  Contiene las entidades, modelos y reglas de negocio puras.  
+- **`domain`**
+  Contiene las entidades, modelos y reglas de negocio puras.
   Aquí no existe dependencia de ningún framework o servicio externo.
 
-- **`infrastructure`**  
+- **`infrastructure`**
   Implementación de detalles técnicos como la conexión a Firebase (Cloud Firestore), repositorios concretos, configuraciones y adaptadores necesarios para el acceso a datos.
 
-- **`interfaces`**  
+- **`interfaces`**
   Incluye los controladores (controllers) y rutas (endpoints) que exponen la API al mundo exterior.
 
-- **`use-cases`**  
-  Contiene la lógica de aplicación o casos de uso.  
+- **`use-cases`**
+  Contiene la lógica de aplicación o casos de uso.
   Orquesta las operaciones entre el `domain` y la `infrastructure`, asegurando que las reglas de negocio se cumplan correctamente.
 
 Esta arquitectura facilita la separación de responsabilidades y la evolución del sistema sin comprometer su mantenibilidad.
+```
