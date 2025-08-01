@@ -57,6 +57,7 @@ El backend implementa varias medidas para garantizar la seguridad de la API y la
   JWT_EXPIRES_IN=15m
   WEB=http://localhost:4200
   FIREBASE_ACCOUNT_KEY="keyFirabse"
+```
 
 ## Endpoints principales
 
@@ -102,4 +103,7 @@ La estructura principal del proyecto está organizada en las siguientes carpetas
   Orquesta las operaciones entre el `domain` y la `infrastructure`, asegurando que las reglas de negocio se cumplan correctamente.
 
 Esta arquitectura facilita la separación de responsabilidades y la evolución del sistema sin comprometer su mantenibilidad.
+
+```
+
 ```
